@@ -3,17 +3,11 @@ import csv
 import sqlite3
 
 def load_course_database(db_name, csv_filename):
+    print("hello")
     with open(csv_filename, 'rU') as csvfile:
             reader = csv.reader(csvfile)
-         #   for row in reader:
-          #      print(row[0])
-           #     print(row[1])
-            #    print(row[2])
-             #   print(row[3])
-
-    print(tuple(reader))
-
-
+            for row in reader:
+                print(row)
     conn = sqlite3.connect(db_name)
     with conn:
         cur = conn.cursor()
@@ -21,5 +15,6 @@ def load_course_database(db_name, csv_filename):
         cur.execute(sql_cmd, (dept,courseNum)) #value of dept used for the first ?, and courseNum for the 2nd
 
 
-if __name__ == 'main':
-    load_course_database('data', 'seas-courses-5years.csv')
+if __name__ == '__main__':
+    print("hello")
+    load_course_database('course1', 'seas-courses-5years.csv')
